@@ -4,6 +4,7 @@ import { DBFPage } from './pages/DBFPage';
 import { DiapersPage } from './pages/DiapersPage';
 import { SignInPage } from './pages/auth/SignInPage';
 import { SignUpPage } from './pages/auth/SignUpPage';
+import { DashboardPage } from './pages/DashboardPage';
 import App from './App';
 import { useAuth } from './lib/auth';
 import { Navigate } from '@tanstack/react-router';
@@ -45,10 +46,7 @@ const indexRoute = createRoute({
   path: '/',
   component: () => (
     <ProtectedRoute>
-      <div className="p-6">
-        <h1 className="text-2xl font-bold mb-4">Welcome to Baby Care Tracker</h1>
-        <p>Track your baby's feeding and care activities with ease.</p>
-      </div>
+      <DashboardPage />
     </ProtectedRoute>
   ),
 });
