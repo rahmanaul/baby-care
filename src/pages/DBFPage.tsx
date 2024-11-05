@@ -6,6 +6,7 @@ import { DBFSession } from '../lib/types';
 import { Card } from '../components/ui/card';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../lib/auth';
+import { DBFAlert } from '@/components/dbf/DBFAlert';
 
 export function DBFPage() {
   const { user } = useAuth();
@@ -75,6 +76,12 @@ export function DBFPage() {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Direct Breastfeeding</h1>
       </div>
+
+      {
+        sessions && sessions.length > 0 && (
+          <DBFAlert lastFeedTime={sessions[0].end_time} />
+        )
+      }
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
